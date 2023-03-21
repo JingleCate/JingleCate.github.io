@@ -3752,7 +3752,7 @@ h1.page-title + .tag-cloud-list {
   height: 100vh;
   overflow: hidden;
   text-align: center;
-  background: var(--preloader-bg);
+  background: #4c6088;
 }
 #loading-box.loaded {
   z-index: -1000;
