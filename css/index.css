@@ -3748,8 +3748,8 @@ h1.page-title + .tag-cloud-list {
 #loading-box {
   position: fixed;
   z-index: 1000;
-  width: 60vw;
-  height: 60vh;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   text-align: center;
   background: #4c6088;
