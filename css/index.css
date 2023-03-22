@@ -3683,11 +3683,11 @@ h1.page-title + .tag-cloud-list {
   filter: blur(0px);
 }
 #loading-box.loaded {
-  -webkit-transition: background 2s, z-index 2s;
-  -moz-transition: background 2s, z-index 2s;
-  -o-transition: background 2s, z-index 2s;
-  -ms-transition: background 2s, z-index 2s;
-  transition: background 2s, z-index 2s;
+  -webkit-transition: background 2s;
+  -moz-transition: background 2s;
+  -o-transition: background 2s;
+  -ms-transition: background 2s;
+  transition: background 2s;
   background: var(--global-bg);
   z-index: -1000;
   filter: blur(5px);
