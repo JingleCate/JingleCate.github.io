@@ -3682,87 +3682,51 @@ h1.page-title + .tag-cloud-list {
   background: #4c6088;
 }
 #loading-box.loaded {
-  -webkit-animation: openAnim 3s ease-in-out;
-  -moz-animation: openAnim 3s ease-in-out;
-  -o-animation: openAnim 3s ease-in-out;
-  -ms-animation: openAnim 3s ease-in-out;
-  animation: openAnim 3s ease-in-out;
-  -webkit-transition: background 2s;
-  -moz-transition: background 2s;
-  -o-transition: background 2s;
-  -ms-transition: background 2s;
-  transition: background 2s;
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -o-transition: background 1s;
+  -ms-transition: background 1s;
+  transition: background 1s;
   z-index: -1000;
   background: var(--global-bg);
+  -webkit-animation: openAnim 1s ease-in-out;
+  -moz-animation: openAnim 1s ease-in-out;
+  -o-animation: openAnim 1s ease-in-out;
+  -ms-animation: openAnim 1s ease-in-out;
+  animation: openAnim 1s ease-in-out;
 }
 #loading-box.loaded #app {
   display: none;
 }
 @-moz-keyframes openAnim {
-  0% {
-    filter: blur(10px);
+  from {
+    filter: blur(5px);
   }
-  25% {
-    filter: blur(6px);
-  }
-  50% {
-    filter: blur(4px);
-  }
-  75% {
-    filter: blur(2px);
-  }
-  100% {
+  to {
     filter: blur(0px);
   }
 }
 @-webkit-keyframes openAnim {
-  0% {
-    filter: blur(10px);
+  from {
+    filter: blur(5px);
   }
-  25% {
-    filter: blur(6px);
-  }
-  50% {
-    filter: blur(4px);
-  }
-  75% {
-    filter: blur(2px);
-  }
-  100% {
+  to {
     filter: blur(0px);
   }
 }
 @-o-keyframes openAnim {
-  0% {
-    filter: blur(10px);
+  from {
+    filter: blur(5px);
   }
-  25% {
-    filter: blur(6px);
-  }
-  50% {
-    filter: blur(4px);
-  }
-  75% {
-    filter: blur(2px);
-  }
-  100% {
+  to {
     filter: blur(0px);
   }
 }
 @keyframes openAnim {
-  0% {
-    filter: blur(10px);
+  from {
+    filter: blur(5px);
   }
-  25% {
-    filter: blur(6px);
-  }
-  50% {
-    filter: blur(4px);
-  }
-  75% {
-    filter: blur(2px);
-  }
-  100% {
+  to {
     filter: blur(0px);
   }
 }
