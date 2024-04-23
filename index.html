@@ -1,0 +1,648 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Jingle Cath の 博客</title><meta name="author" content="Jingle Cath,jinglecath@qq.com"><meta name="copyright" content="Jingle Cath"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Principle and coding">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jingle Cath の 博客">
+<meta property="og:url" content="https://blog.jinglecath.top/index.html">
+<meta property="og:site_name" content="Jingle Cath の 博客">
+<meta property="og:description" content="Principle and coding">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.jinglecath.top/img/avatar.jpg">
+<meta property="article:author" content="Jingle Cath">
+<meta property="article:tag" content="Math Principle Coding C++ Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.jinglecath.top/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.jinglecath.top/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-HMZZFQZE53"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HMZZFQZE53');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":1500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jingle Cath","link":"链接: ","source":"来源: Jingle Cath の 博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Jingle Cath の 博客',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-04-23 17:23:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/loading.css?1"><link rel="stylesheet" href="/css/music.css?1"><link rel="stylesheet" href="/css/aplayer.css?1"><script src="https://unpkg.com/vue@2/dist/vue.js"></script><script async data-pjax src="/js/anzhiyu.js"></script><script async data-pjax src="/js/anzhiyufunction.js"></script><script async src="/js/anzhiyuOnlyOne.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jingle Cath の 博客" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/404.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-photo-film"></i><span> Media</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/icons/"><i class="fa-fw fas fa-icons"></i><span> Icons</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/flink/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/bg8.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Jingle Cath の 博客"><span class="site-name">Jingle Cath の 博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-photo-film"></i><span> Media</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/icons/"><i class="fa-fw fas fa-icons"></i><span> Icons</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/flink/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Jingle Cath の 博客</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/JingleCate" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jinglecath@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/CV/OpenCV%E6%89%8B%E5%86%8C/" title="OpenCV手册"><img class="post-bg" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/Mathematics%20Formula.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="OpenCV手册"></a></div><div class="recent-post-info"><a class="article-title" href="/CV/OpenCV%E6%89%8B%E5%86%8C/" title="OpenCV手册">OpenCV手册</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-17T12:56:46.000Z" title="发表于 2024-04-17 20:56:46">2024-04-17</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-17T13:35:01.791Z" title="更新于 2024-04-17 21:35:01">2024-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Computer-Vision/">Computer Vision</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CV/">CV</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/opencv/">opencv</a></span></div><div class="content">
+demo 子目录
+categories:
+
+Machine Learning
+demo
+
+my 是网址路径，请保持一致
+
+📐几何变换
+1.1 仿射变换
+1.2 透视变换
+1.3 图像金字塔(pyyramid)
+
+🚫去噪与平滑
+🐾 特征提取
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Tools/bash%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80/" title="bash脚本基础"><img class="post-bg" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/bimgs/full_colored_light.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="bash脚本基础"></a></div><div class="recent-post-info"><a class="article-title" href="/Tools/bash%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80/" title="bash脚本基础">bash脚本基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-06T07:32:45.000Z" title="发表于 2024-04-06 15:32:45">2024-04-06</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-10T14:59:27.668Z" title="更新于 2024-04-10 22:59:27">2024-04-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Tools/">Tools</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/linux/">linux</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/bash/">bash</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/shell/">shell</a></span></div><div class="content">
+1. 简介
+​	深入了解一些代码之后，发现bash老是阻挡自己的脚步，尤其是一些项目跑在Linux环境下，Coders便会选择写一个shell脚本，想自己改又不是很懂，还有像是Github的action脚本也会用到这些。Shell即贝壳的意思，它就像套在Linux内核的一种抽象接口，对内连接内核，对外为用户提供命令接口，bash便是其中一种 ^1：
+
+Shell 接收到用户输入的命令以后，会根据空格将用户的输入，拆分成一个个词元（token）。然后，Shell 会扩展词元里面的特殊字符，扩展完成后才会调用相应的命令。这种特殊字符的扩展，称为模式扩展（globbing）。
+2. 内容
+2.1 Shebang 行
+​	脚本的第一行通常是指定解释器，即这个脚本必须通过什么解释器执行。这一行以#!字符开头，这个字符称为 Shebang，所以这一行就叫做 Shebang 行。#!后面就是脚本解释器的位置，Bash 脚本的解释器一般是/bin/sh或/bin/bash。
+1#!/bin/bash(sh)
+2.2 脚本参数
+​	调用脚本的时候，脚本文件名后面可以带有参数：
+1./script.sh ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/Tools/Neovim%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" title="Neovim快捷键及其配置"><img class="post-bg" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neovim-logo.svg/1113px-Neovim-logo.svg.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="Neovim快捷键及其配置"></a></div><div class="recent-post-info"><a class="article-title" href="/Tools/Neovim%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" title="Neovim快捷键及其配置">Neovim快捷键及其配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-06T07:31:23.000Z" title="发表于 2024-04-06 15:31:23">2024-04-06</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-10T14:38:12.668Z" title="更新于 2024-04-10 22:38:12">2024-04-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Tools/">Tools</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/vim/">vim</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/neovim/">neovim</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/nvim/">nvim</a></span></div><div class="content">更新日志
+2024-04-06
+常用键位更新
+
+
+Vim 键位备忘录
+
+
+
+键位
+功能
+
+
+
+
+v
+可视模式
+
+
+SHIFT + v
+块可视模块
+
+
+u
+撤销前次操作
+
+
+CTRL + r
+恢复前次操作
+
+
+G
+最后一行
+
+
+gg
+第一行
+
+
+w
+移动到下一个单词(word)
+
+
+b
+移动到上一个单词(before)
+
+
+(n)dd
+删除n行（剪切整行，不写n默认为1）
+
+
+dw
+删除当前单词
+
+
+cw
+改变当前单词(change word)
+
+
+yy
+复制整行
+
+
+yw
+复制单词(yarn word)
+
+
+y
+复制
+
+
+p
+粘贴
+
+
+u
+撤销操作（重做）
+
+
+m +
+标签
+
+
+~
+当前字符转化大小写
+
+
+
+1. 配置目录结构
+Github链接：
+GitHubhttps://github.com/JingleCate/neovimConfig
+1.1 不同系统的配置目录：
+
+
+C:\Users\*\AppData\Local\nvim&gt;(Windows)
+
+
+~/.config/nvim(Linux)
+
+
+1.2 目录结构
+1234567891011121314151617181 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Tools/Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/" title="Linux命令手册"><img class="post-bg" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://img.linux.net.cn/data/attachment/album/201509/22/135342irvrvnsrnut7s3bv.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="Linux命令手册"></a></div><div class="recent-post-info"><a class="article-title" href="/Tools/Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/" title="Linux命令手册">Linux命令手册</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-05T06:54:56.000Z" title="发表于 2024-04-05 14:54:56">2024-04-05</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-17T13:01:25.715Z" title="更新于 2024-04-17 21:01:25">2024-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Tools/">Tools</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/linux/">linux</a><span class="article-meta-link">•</span><a class="article-meta__tags" href="/tags/tools/">tools</a></span></div><div class="content">更新日志
+2024-04-06
+添加文件有关命令tar、mv、chmod
+
+
+只介绍一些常见的命令及其常见用法，有的命令功能太复杂，大多数的option都用不上，只需考虑最基本的使用方法即可；太过简单的也略过。
+
+Index
+索引使用了markdown的页内锚点，如：
+1&lt;span id=&quot;chmod&quot;/&gt;
+
+
+
+文件
+系统
+网络
+工具
+
+
+
+
+chmod
+ps
+curl
+ipconfig
+
+
+mv
+
+wget
+
+
+
+tar
+
+
+
+
+
+grep
+
+
+
+
+
+wc
+
+
+
+
+
+
+1. 文件
+
+1.1 chmod
+原始英文--help：
+123456789101112131415161718192021Usage: chmod [OPTION]... MODE[,MODE]... FILE...  or:  chmod [OPTION]... OCTAL-MODE FILE...  or:  chmod [OPTION]... --reference=RFILE FILE...Change the mode of each FILE to MODE.With - ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/ML/ML%E4%B9%8B%E6%A8%A1%E5%9E%8B%E7%AF%87/" title="ML之模型篇"><img class="post-bg" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://www.ebyte.com/Uploadfiles/Picture/2023-9-18/2023918131416411.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="ML之模型篇"></a></div><div class="recent-post-info"><a class="article-title" href="/ML/ML%E4%B9%8B%E6%A8%A1%E5%9E%8B%E7%AF%87/" title="ML之模型篇">ML之模型篇</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-05T06:54:23.000Z" title="发表于 2024-04-05 14:54:23">2024-04-05</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-23T09:07:34.249Z" title="更新于 2024-04-23 17:07:34">2024-04-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Machine-Learning/">Machine Learning</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">镇楼图：
+
+1.​ 🔪KNN分类器
+🏷分类算法
+​	KNN也叫K近邻算法（K-nearest neighbors，KNN )是一种很基本朴实的机器学习方法，归属于分类算法。它是在所有样本空间中寻找距离最近的K个样本，通过投票（多数者获胜）来确定位置样本归属于哪一类，是一种十分简单但却效果很好的算法。
+
+假设有三个类别，如图中所示，K=3（实线）时，待分类样本（绿色🟢）选取最近的3个样本，被划分为红色三角(🔴)所在的类；而当K=5（虚线）时，显然待分类样本被划分蓝色方块（🟦）所在的类。
+1.1 超参
+​	不难发现KNN只有两个超参数：
+
+
+K的取值
+如何选择一个最佳的K值取决于数据。一般情况下，在分类时较大的K值能够减小噪声的影响，但会使类别之间的界限变得模糊；而较小的K值易受噪声影响，边界也更加细分。K值的选择其实决定了KNN对样本空间的划分即决策边界，K越大，边界越平滑：
+
+同样的，选择不同的K值，划分出的类别也有不同的偏差和方差：
+
+小的K值偏差（即bias，用来衡量精确度）小，但方差大（variance，衡量离散度）；而大的K值恰恰相反；我们不可能既要又要，总要舍弃一些 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/Tools/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式"><img class="post-bg" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://www.houyicaiji.com/wp-content/uploads/2023/10/image-46.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="正则表达式"></a></div><div class="recent-post-info"><a class="article-title" href="/Tools/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-31T11:16:00.000Z" title="发表于 2024-03-31 19:16:00">2024-03-31</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-10T14:38:17.905Z" title="更新于 2024-04-10 22:38:17">2024-04-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Tools/">Tools</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/tools/">tools</a></span></div><div class="content">
+Regex测试推荐网站  https://regex101.com/
+
+一 限定符与运算符
+​	正则表达式（Regular Expression，即regex）十分常见，如字符串检索，文档检索，Linux中的命令等等，要想理解正则表达式，必须学习它的限定符。
+需要注意的是，regex的限定符组用于符号前面的字符或字符串。
+
+1. 限定符 ?
+1pattern = cate?
+如上所示，模式串为cate，?限定符即表示e出现 0次或1次。
+
+2. 限定符 *
+1pattern = cat*e
+如上所示，模式串为cate，*限定符表示其前面的t出现 0次或多次。
+
+3. 限定符 +
+1pattern = cat+e
+如上所示，模式串为cate，+限定符表示其前面的t出现 1次以上。
+
+4. 限定次数 { }
+
+
+指定次数
+1pattern = cat&#123;3&#125;e
+如上所示，模式串为cate，限定符表示其前面的t出现 3次。
+
+
+
+指定次数范围
+1pattern = cat&#123;2, 4&#125;e
+如上所示，模式串为cate，限定符表示其前面的t出现 2~3次。
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/CV/%E7%89%B9%E5%BE%81%E7%82%B9%E6%A3%80%E6%B5%8B/" title="特征点检测"><img class="post-bg" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230409225306775.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="特征点检测"></a></div><div class="recent-post-info"><a class="article-title" href="/CV/%E7%89%B9%E5%BE%81%E7%82%B9%E6%A3%80%E6%B5%8B/" title="特征点检测">特征点检测</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-09T13:22:03.000Z" title="发表于 2023-04-09 21:22:03">2023-04-09</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-10T14:38:32.826Z" title="更新于 2024-04-10 22:38:32">2024-04-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Computer-Vision/">Computer Vision</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CV/">CV</a></span></div><div class="content">更新日志
+04-09
+Harris Corner Detect
+
+
+一 前言
+在计算机视觉的领域中，有着两类十分基本的任务：
+
+识别(Recognition)
+测距(Distance)
+
+这篇博客以全景拼接的角度，从兴趣点检测出发，逐步认知识别任务。
+全景拼接有5个基本步骤：
+
+特征点检测(Keypoints Detection)
+构建特征描述符(Construct Feature Descriptor)
+点对匹配(Corresponding Pair Match)
+求出变换矩阵(Compute Transform Matrix)
+变换拼接(Stitch Panorama)
+
+以下说明特征点检测的两大方法。
+二 Harris 角点检测
+12345678910111213141516171819202122232425def harris(filename: str=&quot;Images/lenna_img.jpg&quot;):    img = cv2.imread(filename)    img_copy = cv2.imread(filename)         # Co ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/ML/ML%E4%B9%8B%E6%A6%82%E5%BF%B5%E7%AF%87/" title="ML之概念篇"><img class="post-bg" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://pic1.zhimg.com/v2-5516eb03ee4fd1bb39a8db1ea3e794f8_1440w.jpg?source=172ae18b" onerror="this.onerror=null;this.src='/img/404.png'" alt="ML之概念篇"></a></div><div class="recent-post-info"><a class="article-title" href="/ML/ML%E4%B9%8B%E6%A6%82%E5%BF%B5%E7%AF%87/" title="ML之概念篇">ML之概念篇</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-17T07:45:43.000Z" title="发表于 2023-03-17 15:45:43">2023-03-17</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-10T17:04:29.844Z" title="更新于 2024-04-11 01:04:29">2024-04-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Machine-Learning/">Machine Learning</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ML/">ML</a></span></div><div class="content">更新日志
+2023-03-26
+基本术语概念
+2024-04-11
+重构文章结构，修复了一些错误
+
+
+在学习机器学习时，往往遇到许多概念性的术语，比如泛化、正则化、特征向量、groundtruth等等。刚学时候看到这些词大都是一知半解，没有一个系统的认知，因此概念篇主要对这些概念做一些梳理。
+
+一 专业术语(Terminology)
+​	一切需先从数据说起，毕竟模型是身体，数据相当于知识，有了知识的输入才能对外输出。
+1. 数据
+​	举个例子，要想判断一个瓜是不是好瓜（你是故意找茬是不是），得从它的色泽、声音、根蒂、含糖量等各个方面来判断，这些判断标准就是特征(Feature)。
+
+​	我们将瓜摊所有的瓜编号统计，制作出一个表格，这就是初始的数据集(Data set)，注意我们是假定已经知道这个瓜是好瓜还是坏瓜，这就是标签(Lebel)，其实我们在搜集数据时很多时候是没有标签的，需要人为的为它们打上标签。
+
+
+单条数据：
+
+不带标签的单个数据称为样本(Sample)
+带标签的单个数据称为样例(Example)
+
+这个其实不是很重要，大概知道说的是啥就行。
+
+
+数据集合：
+
+
+带有标签且 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="avatar"/></div><div class="author-info__name">Jingle Cath</div><div class="author-info__description">Principle and coding</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/JingleCate" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jinglecath@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/CV/OpenCV%E6%89%8B%E5%86%8C/" title="OpenCV手册"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/Mathematics%20Formula.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="OpenCV手册"/></a><div class="content"><a class="title" href="/CV/OpenCV%E6%89%8B%E5%86%8C/" title="OpenCV手册">OpenCV手册</a><time datetime="2024-04-17T12:56:46.000Z" title="发表于 2024-04-17 20:56:46">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Tools/bash%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80/" title="bash脚本基础"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/bimgs/full_colored_light.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="bash脚本基础"/></a><div class="content"><a class="title" href="/Tools/bash%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80/" title="bash脚本基础">bash脚本基础</a><time datetime="2024-04-06T07:32:45.000Z" title="发表于 2024-04-06 15:32:45">2024-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Tools/Neovim%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" title="Neovim快捷键及其配置"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neovim-logo.svg/1113px-Neovim-logo.svg.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="Neovim快捷键及其配置"/></a><div class="content"><a class="title" href="/Tools/Neovim%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" title="Neovim快捷键及其配置">Neovim快捷键及其配置</a><time datetime="2024-04-06T07:31:23.000Z" title="发表于 2024-04-06 15:31:23">2024-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Tools/Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/" title="Linux命令手册"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://img.linux.net.cn/data/attachment/album/201509/22/135342irvrvnsrnut7s3bv.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="Linux命令手册"/></a><div class="content"><a class="title" href="/Tools/Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/" title="Linux命令手册">Linux命令手册</a><time datetime="2024-04-05T06:54:56.000Z" title="发表于 2024-04-05 14:54:56">2024-04-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ML/ML%E4%B9%8B%E6%A8%A1%E5%9E%8B%E7%AF%87/" title="ML之模型篇"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://www.ebyte.com/Uploadfiles/Picture/2023-9-18/2023918131416411.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="ML之模型篇"/></a><div class="content"><a class="title" href="/ML/ML%E4%B9%8B%E6%A8%A1%E5%9E%8B%E7%AF%87/" title="ML之模型篇">ML之模型篇</a><time datetime="2024-04-05T06:54:23.000Z" title="发表于 2024-04-05 14:54:23">2024-04-05</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/ML/" style="font-size: 1.45em; color: rgb(178, 72, 67)">ML</a><a href="/tags/linux/" style="font-size: 1.45em; color: rgb(2, 118, 99)">linux</a><a href="/tags/tools/" style="font-size: 1.45em; color: rgb(119, 153, 58)">tools</a><a href="/tags/CV/" style="font-size: 1.45em; color: rgb(93, 164, 108)">CV</a><a href="/tags/opencv/" style="font-size: 1.15em; color: rgb(115, 109, 124)">opencv</a><a href="/tags/vim/" style="font-size: 1.15em; color: rgb(122, 127, 126)">vim</a><a href="/tags/neovim/" style="font-size: 1.15em; color: rgb(35, 10, 127)">neovim</a><a href="/tags/nvim/" style="font-size: 1.15em; color: rgb(177, 42, 96)">nvim</a><a href="/tags/bash/" style="font-size: 1.15em; color: rgb(49, 5, 31)">bash</a><a href="/tags/shell/" style="font-size: 1.15em; color: rgb(197, 125, 88)">shell</a></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">11.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-04-23T09:23:50.877Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/bg8.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Jingle Cath</div><div class="footer_custom_text">Powerd by Hexo | Theme Butterfly</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="nav-music"><div id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()">播放音乐</div><meting-js id="9733405654" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, 1))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (true) {
+        const sub = ["浮生若梦，为欢几何？"]
+        const content = result.data.content
+        sub.unshift(content)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+typedJSFn.run(subtitleType)
+</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.4" zIndex="-1" mobile="false" data-click="true"></script><link rel="stylesheet" href="https://npm.elemecdn.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://npm.elemecdn.com/aplayer/dist/APlayer.min.js"></script><script src="/js/meting.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-HMZZFQZE53', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div class="docsearch-wrap"><div id="docsearch" style="display:none"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css/dist/style.min.css"/><script src="https://cdn.jsdelivr.net/npm/@docsearch/js/dist/umd/index.min.js"></script><script>(() => {
+  docsearch(Object.assign({
+    appId: 'BM6CCU9NV8',
+    apiKey: '6306aa7027beeac403b41454e1af1703',
+    indexName: 'jinglecath',
+    container: '#docsearch',
+  }, null))
+
+
+  const searchClickFn = () => {
+    document.querySelector('#search-button > .search').addEventListener('click', () => {
+      document.querySelector('.DocSearch-Button').click()
+    })
+  }
+
+  searchClickFn()
+  window.addEventListener('pjax:complete', searchClickFn)
+})()</script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>

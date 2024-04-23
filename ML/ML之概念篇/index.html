@@ -1,0 +1,682 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>ML之概念篇 | Jingle Cath の 博客</title><meta name="author" content="Jingle Cath,jinglecath@qq.com"><meta name="copyright" content="Jingle Cath"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="更新日志 2023-03-26 基本术语概念 2024-04-11 重构文章结构，修复了一些错误   在学习机器学习时，往往遇到许多概念性的术语，比如泛化、正则化、特征向量、groundtruth等等。刚学时候看到这些词大都是一知半解，没有一个系统的认知，因此概念篇主要对这些概念做一些梳理。  一 专业术语(Terminology) ​	一切需先从数据说起，毕竟模型是身体，数据相当于知识，有了知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ML之概念篇">
+<meta property="og:url" content="https://blog.jinglecath.top/ML/ML%E4%B9%8B%E6%A6%82%E5%BF%B5%E7%AF%87/index.html">
+<meta property="og:site_name" content="Jingle Cath の 博客">
+<meta property="og:description" content="更新日志 2023-03-26 基本术语概念 2024-04-11 重构文章结构，修复了一些错误   在学习机器学习时，往往遇到许多概念性的术语，比如泛化、正则化、特征向量、groundtruth等等。刚学时候看到这些词大都是一知半解，没有一个系统的认知，因此概念篇主要对这些概念做一些梳理。  一 专业术语(Terminology) ​	一切需先从数据说起，毕竟模型是身体，数据相当于知识，有了知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-5516eb03ee4fd1bb39a8db1ea3e794f8_1440w.jpg?source=172ae18b">
+<meta property="article:published_time" content="2023-03-17T07:45:43.000Z">
+<meta property="article:modified_time" content="2024-04-10T17:04:29.844Z">
+<meta property="article:author" content="Jingle Cath">
+<meta property="article:tag" content="ML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.zhimg.com/v2-5516eb03ee4fd1bb39a8db1ea3e794f8_1440w.jpg?source=172ae18b"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.jinglecath.top/ML/ML%E4%B9%8B%E6%A6%82%E5%BF%B5%E7%AF%87/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-HMZZFQZE53"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HMZZFQZE53');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":1500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: Jingle Cath","link":"链接: ","source":"来源: Jingle Cath の 博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ML之概念篇',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-11 01:04:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/loading.css?1"><link rel="stylesheet" href="/css/music.css?1"><link rel="stylesheet" href="/css/aplayer.css?1"><script src="https://unpkg.com/vue@2/dist/vue.js"></script><script async data-pjax src="/js/anzhiyu.js"></script><script async data-pjax src="/js/anzhiyufunction.js"></script><script async src="/js/anzhiyuOnlyOne.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jingle Cath の 博客" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/404.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-photo-film"></i><span> Media</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/icons/"><i class="fa-fw fas fa-icons"></i><span> Icons</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/flink/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic1.zhimg.com/v2-5516eb03ee4fd1bb39a8db1ea3e794f8_1440w.jpg?source=172ae18b')"><nav id="nav"><span id="blog-info"><a href="/" title="Jingle Cath の 博客"><span class="site-name">Jingle Cath の 博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-photo-film"></i><span> Media</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/icons/"><i class="fa-fw fas fa-icons"></i><span> Icons</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/flink/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ML之概念篇</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-17T07:45:43.000Z" title="发表于 2023-03-17 15:45:43">2023-03-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-10T17:04:29.844Z" title="更新于 2024-04-11 01:04:29">2024-04-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Machine-Learning/">Machine Learning</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ML之概念篇"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="timeline undefined"><div class="timeline-item headline"><div class="timeline-item-title"><div class="item-circle"><p>更新日志</p>
+</div></div></div><div class="timeline-item"><div class="timeline-item-title"><div class="item-circle"><p>2023-03-26</p>
+</div></div><div class="timeline-item-content"><p>基本术语概念</p>
+</div></div><div class="timeline-item"><div class="timeline-item-title"><div class="item-circle"><p>2024-04-11</p>
+</div></div><div class="timeline-item-content"><p>重构文章结构，修复了一些错误</p>
+</div></div></div>
+<hr>
+<div class="tip bell faa-horizontal animated"><p>在学习机器学习时，往往遇到许多概念性的术语，比如泛化、正则化、特征向量、groundtruth等等。刚学时候看到这些词大都是一知半解，没有一个系统的认知，因此概念篇主要对这些概念做一些梳理。</p>
+</div>
+<h1>一 专业术语(Terminology)</h1>
+<p>​	一切需先从数据说起，毕竟模型是身体，数据相当于知识，有了知识的输入才能对外输出。</p>
+<h2 id="1-数据">1. 数据</h2>
+<p>​	举个例子，要想判断一个瓜是不是好瓜（<del>你是故意找茬是不是</del>），得从它的色泽、声音、根蒂、含糖量等各个方面来判断，这些判断标准就是<code>特征(Feature)</code>。</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326152317526.png" alt="数据" style="zoom: 67%;">
+<p>​	我们将瓜摊所有的瓜编号统计，制作出一个表格，这就是初始的<code>数据集(Data set)</code>，注意我们是假定已经知道这个瓜是好瓜还是坏瓜，这就是<code>标签(Lebel)</code>，其实我们在搜集数据时很多时候是没有标签的，需要人为的为它们打上标签。</p>
+<ol>
+<li>
+<p><strong>单条数据：</strong></p>
+<ul>
+<li><strong>不带标签</strong>的单个数据称为样本(Sample)</li>
+<li>带标签的单个数据称为样例(Example)</li>
+</ul>
+<p>这个其实不是很重要，大概知道说的是啥就行。</p>
+</li>
+<li>
+<p><strong>数据集合：</strong></p>
+<ul>
+<li>
+<p>带有标签且用于训练的集合叫做<strong>训练集</strong>（Training Set）</p>
+</li>
+<li>
+<p>带有标签的用于验证的集合叫做<strong>验证集</strong>（Validation Set）</p>
+</li>
+<li>
+<p>带有标签且用于测试的集合叫<strong>测试集</strong>（Testing Set）</p>
+</li>
+</ul>
+<p>训练集就是用来训练模型的数据集，就像是你平时学习的知识和做的习题；</p>
+<p>测试集就是用来测试模型性能的数据集，就像是你的考试，通过测试看你平时掌握了多少知识。</p>
+<p>前两个都是字面意思，至于验证集我们在后面交叉验证法的时候再说明。</p>
+</li>
+<li>
+<p><strong>样本空间：</strong></p>
+<p>之前说到各个样本的特征，它是有维度(Dimension)的，取决于你的数据，比如上述表格中就是8维特征，所有样本集合在高维空间的分布就叫<strong>样本空间</strong>。</p>
+</li>
+</ol>
+<h2 id="2-预测值与真值">2. 预测值与真值</h2>
+<ol>
+<li>模型的输出我们叫做<code>预测值(Hypothesis or prediction)</code>；</li>
+<li>对应输入数据的标签我们叫做<code>真值(Groundtruth)</code>。</li>
+</ol>
+<p>​	在数学表达中，我们通常将预测值表示为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><msub><mi>y</mi><mi>i</mi></msub><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{y_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span></span></span></span>，真值表示为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">{y_i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span> 。其实与概率中的预测值表达十分相似。</p>
+<h2 id="3-任务分类">3. 任务分类</h2>
+<p class="p center logo h2">Task Map</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326145737385.png" alt="分类" style="zoom: 50%;">
+<h3 id="3-1-以预测目标分类">3.1 以预测目标分类</h3>
+<ol>
+<li><strong>分类任务(Classification Task)</strong>：输出离散值
+<ul>
+<li>二分类任务</li>
+<li>多分类任务</li>
+</ul>
+</li>
+<li><strong>回归任务(Regression Task)</strong>：输出连续值</li>
+<li><strong>聚类任务(Clustering Task)</strong></li>
+</ol>
+<h3 id="3-2-以标签分类">3.2 以标签分类</h3>
+<ol>
+<li><strong>监督学习(Supervised Learning)</strong></li>
+<li><strong>无监督学习(Unsupervised Learning)</strong></li>
+<li><strong>半监督学习(Semi-supervised Learning)</strong></li>
+</ol>
+<h2 id="4-超参数-Hyper-parameter">4. 超参数(Hyper-parameter)</h2>
+<p>​	超参数调整（Parameter Tuning）不可能全部取到，只能选择一定的范围和步长测试数量有限的超参。</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326205454535.png" alt="image-20230326205454535" style="zoom: 50%;">
+<h1>二 误差与拟合</h1>
+<p>​	现实中有许多的模型(算法)，而且相同的模型在不同的训练条件下也有不同的参数，哪种模型才是最好的呢？</p>
+<h2 id="1-模型选择">1. 模型选择</h2>
+<p><strong>Example：</strong></p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326163820247.png" alt="拟合情况" style="zoom: 50%;">
+<h2 id="2-准确率与误差">2. 准确率与误差</h2>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">\Omega</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Ω</span></span></span></span> 为全部数据，U 未匹配输出，M为匹配数据</p>
+<ol>
+<li>
+<p>误差(Error)</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mo>=</mo><mfrac><mi>U</mi><mi mathvariant="normal">Ω</mi></mfrac><mo>⋅</mo><mn>100</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">E=\frac{U}{\Omega}\cdot 100\%
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Ω</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">U</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">100%</span></span></span></span></span></p>
+</li>
+<li>
+<p>准确率(Accuracy)</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mo>=</mo><mn>1</mn><mo>−</mo><mi>E</mi><mo>=</mo><mfrac><mi>M</mi><mi mathvariant="normal">Ω</mi></mfrac><mo>⋅</mo><mn>100</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">A=1-E=\frac{M}{\Omega}\cdot 100\%
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Ω</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">100%</span></span></span></span></span></p>
+</li>
+</ol>
+<p><strong>误差类型：</strong></p>
+<ol>
+<li>
+<p><strong>Error 误差</strong></p>
+<ul>
+<li>Error is the difference between the output of a learner and the ground-truth of samples</li>
+</ul>
+</li>
+<li>
+<p><strong>Training error/Empirical error 训练/经验误差</strong></p>
+<ul>
+<li>error on the training set</li>
+</ul>
+</li>
+<li>
+<p><strong>Testing error 测试误差</strong></p>
+<ul>
+<li>error on the testing set</li>
+</ul>
+</li>
+<li>
+<p><strong>Generalization error 泛化误差</strong> <span class="p red">Main Consider</span></p>
+<ul>
+<li>error on all samples except training set</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-泛化">3. 泛化</h2>
+<div class="note warning flat"><p>完美匹配训练集的模型是一个好的模型吗？显然不是的，模型的最终目标是预测新数据并不是训练集数据，而我们将模型适应新样本的能力叫做<strong>泛化能力(Generalization Ability)</strong>。</p>
+</div>
+<p>所以我们的最终目标是得到一个<strong>低泛化误差</strong>的模型，主要有两个方面：</p>
+<ul>
+<li>
+<p class="p blue">在训练时选择一个低泛化误差的模型</p>
+</li>
+<li>
+<p class="p blue">训练完成后评估泛化误差</p>
+</li>
+</ul>
+<h2 id="4-欠拟合与过拟合">4. 欠拟合与过拟合</h2>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230319221750689.png" alt="过拟合" style="zoom: 80%;">
+<h3 id="4-1-Overfitting（key-problem">4.1 Overfitting（key problem)</h3>
+<div class="tip warning faa-horizontal animated"><p>过拟合是无法避免的，只能适度缓解，而且在数据集足够大时，过拟合也未尝不可。</p>
+</div>
+<p>The learner regards the features of the training sample itself as a general property that all potential samples will have.</p>
+<p><strong>Feature</strong>:</p>
+<p>​	模型在训练集上的表现很好，但在测试集和新数据上的表现很差。</p>
+<p><strong>Example：</strong></p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230319221801659.png" alt="过拟合1" style="zoom: 50%;">
+<p>测试当恰好等于训练集某一样本时，检测成功，否则随机。（啥也没做）如下图：</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230319221808359.png" alt="过拟合2" style="zoom: 50%;">
+<h4 id="4-1-1-解决方案">4.1.1 解决方案</h4>
+<ol>
+<li>
+<p><strong>数据集相关</strong></p>
+<ul>
+<li>
+<p>增大训练数据集数据量</p>
+</li>
+<li>
+<p><strong>Data Augmentation</strong>：对训练集进行数据增强（如拉伸，反转）</p>
+<p>​	这一步其实也在<strong>增大数据集数据量</strong>。使用数据增强可以生成多幅相似图像。这可以帮助我们增加数据集规模从而减少过拟合。因为随着数据量的增加，模型无法过拟合所有样本，因此自然减少过拟合的概率。</p>
+<div class="tip bolt faa-horizontal animated-hover"><p>计算机视觉领域：翻转、平移、旋转、缩放、改变亮度、添加噪声等等；</p>
+<p>音频数据增强方法：增加噪音、增加混响、时移、改变音调和时间拉伸等等。</p>
+</div>
+</li>
+</ul>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230319221817306.png" alt="数据增强" style="zoom: 45%;">
+</li>
+<li>
+<p><strong>模型相关</strong></p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230319221826794.png" alt="约束模型" style="zoom: 50%;">
+<ul>
+<li>
+<p>降低模型复杂度</p>
+</li>
+<li>
+<p>正则化(Regularization)</p>
+<p>在损失函数后面加一个正则化项，常见的有<code>L1正则化</code>和<code>L2正则化</code>，类比向量的1-Norm和2-Norm。</p>
+<blockquote>
+<p>类似的概念还有：</p>
+<ol>
+<li>
+<p>Zero-center：中心化处理，减去均值，方差不做要求;</p>
+</li>
+<li>
+<p>Standardization：标准化处理，减去均值除于方差，也就是将数据变为均值为0方差为1的正态分布（注意，这里指的是数据的分布，数值不一定在0-1区间，区分下面）；</p>
+</li>
+<li>
+<p>Normalization：归一化处理，把数据大小限定在特定的范围，比如一般都是[0,1]或[-1,1]；</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>Dropout</p>
+<p>以概率<code>p</code>随机失活某层多个感知机：</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/bimgs/1680169820167.png" alt="Dropout" style="zoom: 50%;">
+</li>
+</ul>
+</li>
+<li>
+<p><strong>训练相关</strong></p>
+<ul>
+<li>早停法(Early Stoping)</li>
+</ul>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/bimgs/1_06sTlOC3AYeZAjzUDwbaMw@2x.jpg" alt="早停法" style="zoom: 45%;">
+</li>
+</ol>
+<h3 id="4-2-Underfitting">4.2 Underfitting</h3>
+<p>​	模型还没有学习到训练样本的一般性质，这也是模型需要不断优化的原因之一。</p>
+<h1>三 数据集划分和模型评估</h1>
+<h2 id="1-数据集划分">1. 数据集划分</h2>
+<div class="note red icon-padding flat"><i class="note-icon fa-arrowat"></i><p><strong>Goal</strong>：Low generalization error.</p>
+</div>
+<p>一	般用测试集来测试模型辨别新样本的能力，即泛化能力。那么应该如何用测试集测试泛化能力呢？</p>
+<p><strong>Basic Idea</strong>：</p>
+<ul>
+<li>
+<p>测试集样本不应该出现在训练集中。</p>
+</li>
+<li>
+<p>如何将数据集划分为训练集与测试集。</p>
+</li>
+</ul>
+<p>主要有三种分类方法。</p>
+<h3 id="1-1-留出法-Hand-Out">1.1 留出法(Hand-Out)</h3>
+<wavy>该方法应尽可能保持数据的组成分布相同。</wavy>
+<p>​	留出法即将数据集专门留出一部分用作测试</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326194213835.png" alt="留出法" style="zoom:50%;">
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>数据集划分导致训练集数据减少。</li>
+</ul>
+<div class="tip bell faa-horizontal animated"><p>通常取<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{2}{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> ~ <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>4</mn><mn>5</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{4}{5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 用于训练</p>
+</div>
+<h3 id="1-2-交叉验证法-Cross-Validation">1.2 交叉验证法(Cross-Validation)</h3>
+<blockquote>
+<p>​	交叉验证是无差的，网上交叉验证法的测试集其实其实是就是<strong>验证集（Validation Set）</strong>，因为测试集不能作为训练，而验证集经常与训练集一起在训练时调整超参数，因此交叉验证中用到的测试数据只能来自验证集。这里国内的翻译很混乱，第一次接触的时候也是一头雾水。可以参考这节最后的示例图，黄色的就是验证集，橙色的(True Test Set)即是真正的测试集。</p>
+</blockquote>
+<p>先考虑一种极端情况，也叫作留一交叉验证（<code>Leave one out Cross validation</code>)：</p>
+<ul>
+<li>
+<p>数据集中有n个数据，我们留1个用于测试，其他用来训练。依次取数据集中每个数据作为测试数据</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://pic1.zhimg.com/80/v2-27f8c5989dd7790ccf6b626e6854e06c_720w.webp" alt="留一交叉验证" style="zoom: 67%;">
+</li>
+</ul>
+<p>​	LOOCV的方法就是每次取出一个数据作为验证集的唯一元素，而其他n-1个数据都作为训练集用于训练模型和调参。最终训练了n个带参模型(这里我们是使用了同一种模型架构，因为训练了n次，故其实得到了n个带参模型)，每次都能得到一个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>S</mi><msub><mi>E</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">MSE_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">MS</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>(均方误差)。而计算最终<code>测试MSE</code>则就是将这n个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>S</mi><msub><mi>E</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">MSE_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">MS</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>取平均，即：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>M</mi><mi>S</mi><mi>E</mi><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mrow><mi>M</mi><mi>S</mi><msub><mi>E</mi><mi>i</mi></msub></mrow></mrow><annotation encoding="application/x-tex">MSE=\frac{1}{n}\sum_{i=1}^{n} {MSE_i}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">MSE</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.9291em;vertical-align:-1.2777em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">MS</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>​	其缺点十分明显：<strong>计算量太大</strong>。我们在此之上做出改进，提出一种折中的方法——<code>k次N折交叉验证(k-times N-fold Cross Validation)</code>。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>将数据集划分为N份，而不必以单个样本为最小元。</li>
+<li>不重复地每次取其中一份做验证集，用其他N-1份做训练集训练模型，之后计算该模型在测试集上的总均方误差</li>
+</ol>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>M</mi><mi>S</mi><mi>E</mi><mo>=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><mrow><mi>M</mi><mi>S</mi><msub><mi>E</mi><mi>i</mi></msub></mrow></mrow><annotation encoding="application/x-tex">MSE=\frac{1}{N}\sum_{i=1}^{N} {MSE_i}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">MSE</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.106em;vertical-align:-1.2777em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">MS</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326200903629.png" alt="交叉验证" style="zoom:67%;">
+<p>那如何选择一个低泛化误差选定模型呢？举个例子：</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326201155540.png" alt="示例" style="zoom: 50%;">
+<p>这里我们是使用了3种模型，横向比较选择MSE最小的一个。</p>
+<h3 id="1-3-自助-采样-法-Bootstrapping">1.3 自助(采样)法(Bootstrapping)</h3>
+<blockquote>
+<p>在<strong>统计学</strong>中，<strong>自助法</strong>（Bootstrap Method，Bootstrapping）是一种从给定训练集中<strong>有放回</strong>的均匀抽样，也就是说，每当选中一个样本，它等可能地被再次选中并被再次添加到训练集中。自助法由Bradley Efron于1979年在《Annals of Statistics》上发表。当样本来自能以<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83">正态分布</a>来描述的总体，其<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%8A%BD%E6%A8%A3%E5%88%86%E5%B8%83&amp;action=edit&amp;redlink=1">抽样分布</a>为正态分布；但当样本来自的总体无法以正态分布来描述，则以<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%BC%B8%E9%80%B2%E5%88%86%E6%9E%90%E6%B3%95&amp;action=edit&amp;redlink=1">渐进分析法</a>、自助法等来分析。采用随机可排列抽样（random sampling with replacement）。对于小数据集，自助法效果很好。</p>
+</blockquote>
+<p>​	我们希望评估的是用原始数据集D训练出的模型，但是留出法和交叉验证法训练的数据集比原始的数据集D小，这必然会引入因训练数据集不同导致的估计偏差，留一法受训练样本规模变化的影响较小，但是计算复杂度太高。</p>
+<p>​	<strong>自助法</strong>是有放回抽样，给定包含<code>m</code>个样本的数据集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>，我们对它进行采样产生数据集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">D&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>：</p>
+<ol>
+<li>每次随机从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> 中挑选一个样本，将该样本拷贝放入 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">D&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></li>
+<li>然后再将该样本放回初始数据集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> 中，下次抽样时仍有可能被采到</li>
+<li>重复执行<code>m</code>次该过程，我们就得到了包含m个样本数据集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">D&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>，</li>
+</ol>
+<p>​	初始数据集D中有一部分样本会在数据集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">D&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 中多次出现，也有一部分样本不会在数据集 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">D&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 中出现。</p>
+<blockquote>
+<p>所以我们取</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">D&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 为训练集</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi mathvariant="normal">/</mi><msup><mi>D</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">D/D&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0019em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 为测试集。</li>
+</ul>
+</blockquote>
+<p>若数据集太少，我们进行多次自助采样可在一定程度上扩充训练集</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/image/1095279443739/1095279443739_1571905239454.jpg" alt="自助采样" style="zoom:67%;">
+<p>一个样本<code>a</code>不被选中概率为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><munder><mrow><mi>lim</mi><mo>⁡</mo></mrow><mrow><mi>m</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></munder><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><msup><mo stretchy="false">)</mo><mi>m</mi></msup></mrow><mo>=</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\lim_{m \to \infty}{(1-\frac{1}{m})^m}=e^{-1}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0214em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">m</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>It’s useful when dataset is small and training and test set are hard to construct</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>The training set <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">D&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> has different distribution of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>, which may introduce bias in evaluation.</li>
+</ul>
+<h2 id="2-模型评估">2. 模型评估</h2>
+<h3 id="2-1-回归任务">2.1 回归任务</h3>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326205857454.png" alt="image-20230326205857454" style="zoom: 33%;">
+<h3 id="2-2-分类任务">2.2 分类任务</h3>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230326210046757.png" alt="image-20230326210046757" style="zoom: 50%;">
+<p>在实际的计算中，我们更多的使用交叉熵。</p>
+<h4 id="2-2-1-混淆矩阵">2.2.1 混淆矩阵</h4>
+<p>然而仅仅靠<strong>误差</strong>和<strong>精确度</strong>这两个参数是无法完全评估分类模型的。因此我们提出一种度量方法——<strong>混淆矩阵(Confusion Matrix)</strong>。先看统计学概念两个</p>
+<blockquote>
+<p>召回率(Recall)和精度(Precise)是广泛用于统计学分类领域的两个度量值，用来评估分类结果的质量。</p>
+<ul>
+<li><strong>召回率(Recall Rate，也叫查全率)</strong> 是检索出的相关文档数和文档库中所有的相关文档数的比率，衡量的是检索系统的查全率；</li>
+<li><strong>正确率(Precision Rate，也叫查准率)</strong> 是检索出的相关文档数与检索出的文档总数的比率，衡量的是检索系统的查准率。</li>
+</ul>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://picx.zhimg.com/80/06020055d84a276cc207704e950e169b_720w.webp?source=1940ef5c" alt="文献检索的测量标准">
+</blockquote>
+<p>二分类问题中混淆矩阵定义如下：</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230328102938389.png" alt="Confusion Matrix" style="zoom: 33%;">
+<p>混淆矩阵由 4 个数构成：</p>
+<ul>
+<li>真阴（True Negatives，TN）：算法预测为负例（N），实际上也是负例（N）的个数，即算法预测对了（True）；</li>
+<li>真阳（True Positives，TP）：算法预测为正例（P），实际上是正例（P）的个数，即算法预测错了（False）；</li>
+<li>假阴（False Negatives，FN）： 算法预测为负例（N），实际上是正例（P）的个数，即算法预测错了（False）；</li>
+<li>假阳（False Positives，FP）：算法预测为正例（P），实际上是负例（N）的个数，即算法预测对了（True）。</li>
+</ul>
+<blockquote>
+<p>怎么记呢？其实很简单，真值为正则为阳，真值为假则为阴。</p>
+<ul>
+<li>那么真阳和真阴就是预测值和真实值相等：TP和TN</li>
+<li>相反，假阴和假阳就是：FN和FP</li>
+</ul>
+<p>写之前思考一下逻辑关系自然就清楚了。</p>
+<p>还有一种更加简单的记法：只需记住在从真阳出发的两条线，分子总是A，分母为线上的数值之和。</p>
+</blockquote>
+<p>那么之前提到的<strong>正确率</strong>和<strong>召回率</strong>：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mi>R</mi><mo>=</mo><mfrac><mrow><mi>T</mi><mi>P</mi></mrow><mrow><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>P</mi></mrow></mfrac><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">PR=\frac{TP}{TP+FP} \\
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">PR</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1297em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">FP</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace newline"></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>R</mi><mi>R</mi><mo>=</mo><mfrac><mrow><mi>T</mi><mi>P</mi></mrow><mrow><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">RR=\frac{TP}{TP+FN}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">RR</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1297em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">FN</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>查准率和查全率是一对<strong>矛盾的指标</strong>。一般来说，查准率高时，查全率往往偏低；二查全率高时，查准率往往偏低。</p>
+<blockquote>
+<p>精确率（Accuracy）和正确率（Precision）的区别:</p>
+<p>Accuracy，不管是哪个类别，只要预测正确，其数量都放在分子上，而分母是全部数据量，说明这个精确率是对全部数据的判断。<br>
+而正确率在分类中对应的是某个类别，分子是预测该类别正确的数量，分母是预测为该类别的全部的数量。<br>
+或者说，Accuracy是对分类器整体上的精确率的评价，而Precision是分类器预测为某一个类别的精确的评价。</p>
+</blockquote>
+<h4 id="2-2-2-F1-和-F-B">2.2.2 F1 和 F_B</h4>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230409205057358.png" style="zoom: 67%;">
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">F_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>β</mi></msub></mrow><annotation encoding="application/x-tex">F_{\beta}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05278em;">β</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> 是对正确率和召回率加权调和平均，在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">F_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 中两者权重相等。</p>
+<h4 id="2-2-3-P-R曲线和ROC曲线">2.2.3 P-R曲线和ROC曲线</h4>
+<p>​	为了更加直观的表示分类器的性能，我们使用PR curve 和 ROC curve.</p>
+<p><strong>PR Curve</strong> ：</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230409210146176.png" alt="PR curve" style="zoom: 67%;">
+<p>一个好的分类模型应该尽可能的靠近ROC曲线的右上角。</p>
+<p><strong>ROC</strong>：</p>
+<img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230409210255770.png" alt="ROC curve" style="zoom: 50%;">
+<p>AUC指的是区域下面积。一个好的分类模型应该尽可能的靠近ROC曲线的左上角。</p>
+<p>ROC曲线如何绘制?</p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.jinglecath.top">Jingle Cath</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.jinglecath.top/ML/ML%E4%B9%8B%E6%A6%82%E5%BF%B5%E7%AF%87/">https://blog.jinglecath.top/ML/ML之概念篇/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.jinglecath.top" target="_blank">Jingle Cath の 博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ML/">ML</a></div><div class="post_share"><div class="social-share" data-image="https://pic1.zhimg.com/v2-5516eb03ee4fd1bb39a8db1ea3e794f8_1440w.jpg?source=172ae18b" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/CV/%E7%89%B9%E5%BE%81%E7%82%B9%E6%A3%80%E6%B5%8B/" title="特征点检测"><img class="cover" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/image-20230409225306775.png" onerror="onerror=null;src='/img/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">特征点检测</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/ML/ML%E4%B9%8B%E6%A8%A1%E5%9E%8B%E7%AF%87/" title="ML之模型篇"><img class="cover" src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://www.ebyte.com/Uploadfiles/Picture/2023-9-18/2023918131416411.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-05</div><div class="title">ML之模型篇</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="avatar"/></div><div class="author-info__name">Jingle Cath</div><div class="author-info__description">Principle and coding</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/JingleCate" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jinglecath@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">一 专业术语(Terminology)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE"><span class="toc-text">1. 数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A2%84%E6%B5%8B%E5%80%BC%E4%B8%8E%E7%9C%9F%E5%80%BC"><span class="toc-text">2. 预测值与真值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%BB%E5%8A%A1%E5%88%86%E7%B1%BB"><span class="toc-text">3. 任务分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BB%A5%E9%A2%84%E6%B5%8B%E7%9B%AE%E6%A0%87%E5%88%86%E7%B1%BB"><span class="toc-text">3.1 以预测目标分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BB%A5%E6%A0%87%E7%AD%BE%E5%88%86%E7%B1%BB"><span class="toc-text">3.2 以标签分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%B6%85%E5%8F%82%E6%95%B0-Hyper-parameter"><span class="toc-text">4. 超参数(Hyper-parameter)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">二 误差与拟合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="toc-text">1. 模型选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%87%86%E7%A1%AE%E7%8E%87%E4%B8%8E%E8%AF%AF%E5%B7%AE"><span class="toc-text">2. 准确率与误差</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B3%9B%E5%8C%96"><span class="toc-text">3. 泛化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%AC%A0%E6%8B%9F%E5%90%88%E4%B8%8E%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-text">4. 欠拟合与过拟合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Overfitting%EF%BC%88key-problem"><span class="toc-text">4.1 Overfitting（key problem)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">4.1.1 解决方案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Underfitting"><span class="toc-text">4.2 Underfitting</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">三 数据集划分和模型评估</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%92%E5%88%86"><span class="toc-text">1. 数据集划分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%95%99%E5%87%BA%E6%B3%95-Hand-Out"><span class="toc-text">1.1 留出法(Hand-Out)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95-Cross-Validation"><span class="toc-text">1.2 交叉验证法(Cross-Validation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E8%87%AA%E5%8A%A9-%E9%87%87%E6%A0%B7-%E6%B3%95-Bootstrapping"><span class="toc-text">1.3 自助(采样)法(Bootstrapping)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="toc-text">2. 模型评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%9B%9E%E5%BD%92%E4%BB%BB%E5%8A%A1"><span class="toc-text">2.1 回归任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1"><span class="toc-text">2.2 分类任务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5"><span class="toc-text">2.2.1 混淆矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-F1-%E5%92%8C-F-B"><span class="toc-text">2.2.2 F1 和 F_B</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-P-R%E6%9B%B2%E7%BA%BF%E5%92%8CROC%E6%9B%B2%E7%BA%BF"><span class="toc-text">2.2.3 P-R曲线和ROC曲线</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/CV/OpenCV%E6%89%8B%E5%86%8C/" title="OpenCV手册"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage@main/bimgs/Mathematics%20Formula.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="OpenCV手册"/></a><div class="content"><a class="title" href="/CV/OpenCV%E6%89%8B%E5%86%8C/" title="OpenCV手册">OpenCV手册</a><time datetime="2024-04-17T12:56:46.000Z" title="发表于 2024-04-17 20:56:46">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Tools/bash%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80/" title="bash脚本基础"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/bimgs/full_colored_light.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="bash脚本基础"/></a><div class="content"><a class="title" href="/Tools/bash%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80/" title="bash脚本基础">bash脚本基础</a><time datetime="2024-04-06T07:32:45.000Z" title="发表于 2024-04-06 15:32:45">2024-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Tools/Neovim%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" title="Neovim快捷键及其配置"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neovim-logo.svg/1113px-Neovim-logo.svg.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="Neovim快捷键及其配置"/></a><div class="content"><a class="title" href="/Tools/Neovim%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/" title="Neovim快捷键及其配置">Neovim快捷键及其配置</a><time datetime="2024-04-06T07:31:23.000Z" title="发表于 2024-04-06 15:31:23">2024-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Tools/Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/" title="Linux命令手册"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://img.linux.net.cn/data/attachment/album/201509/22/135342irvrvnsrnut7s3bv.png" onerror="this.onerror=null;this.src='/img/404.png'" alt="Linux命令手册"/></a><div class="content"><a class="title" href="/Tools/Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C/" title="Linux命令手册">Linux命令手册</a><time datetime="2024-04-05T06:54:56.000Z" title="发表于 2024-04-05 14:54:56">2024-04-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ML/ML%E4%B9%8B%E6%A8%A1%E5%9E%8B%E7%AF%87/" title="ML之模型篇"><img src= "https://cdn.dribbble.com/users/4531160/screenshots/14904162/media/921bfb0808a9d70e2a8c4c43fe5191a0.gif" data-lazy-src="https://www.ebyte.com/Uploadfiles/Picture/2023-9-18/2023918131416411.jpg" onerror="this.onerror=null;this.src='/img/404.png'" alt="ML之模型篇"/></a><div class="content"><a class="title" href="/ML/ML%E4%B9%8B%E6%A8%A1%E5%9E%8B%E7%AF%87/" title="ML之模型篇">ML之模型篇</a><time datetime="2024-04-05T06:54:23.000Z" title="发表于 2024-04-05 14:54:23">2024-04-05</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic1.zhimg.com/v2-5516eb03ee4fd1bb39a8db1ea3e794f8_1440w.jpg?source=172ae18b')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Jingle Cath</div><div class="footer_custom_text">Powerd by Hexo | Theme Butterfly</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="nav-music"><div id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()">播放音乐</div><meting-js id="9733405654" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.4" zIndex="-1" mobile="false" data-click="true"></script><link rel="stylesheet" href="https://npm.elemecdn.com/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://npm.elemecdn.com/aplayer/dist/APlayer.min.js"></script><script src="/js/meting.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-HMZZFQZE53', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div class="docsearch-wrap"><div id="docsearch" style="display:none"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css/dist/style.min.css"/><script src="https://cdn.jsdelivr.net/npm/@docsearch/js/dist/umd/index.min.js"></script><script>(() => {
+  docsearch(Object.assign({
+    appId: 'BM6CCU9NV8',
+    apiKey: '6306aa7027beeac403b41454e1af1703',
+    indexName: 'jinglecath',
+    container: '#docsearch',
+  }, null))
+
+
+  const searchClickFn = () => {
+    document.querySelector('#search-button > .search').addEventListener('click', () => {
+      document.querySelector('.DocSearch-Button').click()
+    })
+  }
+
+  searchClickFn()
+  window.addEventListener('pjax:complete', searchClickFn)
+})()</script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
