@@ -1,5 +1,20 @@
 @font-face {
-    font-family: 'Harmony';
-    font-display: swap;
-    src: url('https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/fonts/HarmonyOS_Sans_SC_Bold.ttf') format("truetype");
-  }
+  font-family: "Harmony";
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/fonts/HarmonyOS_Sans_SC_Bold.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Optima";
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/fonts/Optima-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "SimSong";
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/fonts/STSong.ttf")
+    format("truetype");
+}
