@@ -18,3 +18,11 @@
   src: url("https://cdn.jsdelivr.net/gh/JingleCate/BlogImage/fonts/STSong.ttf")
     format("truetype");
 }
+
+@font-face {
+  font-family: 'SongTi';
+  font-display: swap;
+  src: url('/css/fonts/SourceHanSerifSC-VF.ttf.woff2') format('woff2')
+}
+
+
